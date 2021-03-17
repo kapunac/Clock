@@ -1,0 +1,105 @@
+/* Basic setup */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #333;
+    color:#fff;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    font-size:1.5em;
+}
+h4{
+    margin: 15px;
+}
+/* Defining variables for clock */
+:root{
+    /* Defining variables for clock numbers */
+    --rotation:0;
+    --rotation1:30deg;
+    --rotation2:60deg;
+    --rotation3:90deg;
+    --rotation4:120deg;
+    --rotation5:150deg;
+    --rotation6:180deg;
+    --rotation7:210deg;
+    --rotation8:240deg;
+    --rotation9:270deg;
+    --rotation10:300deg;
+    --rotation11:330deg;
+    /* Variables for rotating the arrows */
+    --arrow:0;
+}
+.clock{
+    position:relative;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 100%;
+    border: 2px solid black;
+}
+/* Styles for numbers */
+.clock .number{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    transform: rotate(var(--rotation));
+}
+.clock .number1{ transform: rotate(var(--rotation1));}
+.clock .number2{ transform: rotate(var(--rotation2));}
+.clock .number3{ transform: rotate(var(--rotation3));}
+.clock .number4{ transform: rotate(var(--rotation4));}
+.clock .number5{ transform: rotate(var(--rotation5));}
+.clock .number6{ transform: rotate(var(--rotation6));}
+.clock .number7{ transform: rotate(var(--rotation7));}
+.clock .number8{ transform: rotate(var(--rotation8));}
+.clock .number9{ transform: rotate(var(--rotation9));}
+.clock .number10{ transform: rotate(var(--rotation10));}
+.clock .number11{ transform: rotate(var(--rotation11));}
+
+/* Styles for arrows */
+.clock::after{
+    content: '';
+    position: absolute;
+    background: #333;
+    z-index:5;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;
+    border: 1px solid black;
+    border-radius: 5px;
+    transform: translate(-50%,-50%);
+}
+.clock .arrow {
+    position:absolute;
+    bottom: 50%;
+    left:50%;
+    background:#333;
+    border-radius:5px;
+    transform-origin:bottom;
+    transform: translateX(-50%) rotate(calc(var(--arrow) * 1deg));
+}
+.clock .arrow.second{
+    width:3px;
+    height: 40%;
+    background:burlywood;
+}
+.clock .arrow.minute{
+    width:4px;
+    height: 38%;
+}
+.clock .arrow.hour{
+    width:8px;
+    height: 36%;
+}
+.red{
+    color:red;
+}
